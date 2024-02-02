@@ -7,6 +7,7 @@ public class ScoreManager : MonoBehaviour
 {
     public Text scoreUI;
     public int score = 0;
+    public int targetScore = 2;
 
     private void Update()
     {

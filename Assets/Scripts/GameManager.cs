@@ -1,18 +1,35 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public bool isPause = false;
+    public GameObject pauseUI;
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+        pauseUI.SetActive(isPause);
+    }
+    public void Pause()
+    {
+        isPause = true;
+    }
+    public void Resume()
+    {
+        isPause = false;
+    }
+    public void RestartGame()
+    {
+        // Get the current scene index
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+
+        // Reload the current scene
+        SceneManager.LoadScene(currentSceneIndex);
+    }
+    public void QuitGame()
+    {
+        Application.Quit();
     }
 }
